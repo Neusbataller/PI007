@@ -1,33 +1,41 @@
 const { Router } = require("express");
 const router = Router();
 
-router.get("/rutaGet", (req, res) => {
-  console.log("hola en la consola de node, desde la 1º ruta GET");
-  res.send("hola soy la 1º ruta GET ");
-});
-router.get("/rutaGetConRouter", (req, res) => {
-  console.log(
-    "hola en la consola de node, desde la 2º ruta GET en el servidor"
-  );
-  res.send("hola soy la 2º ruta GET en el servidor");
+router.get("/", (req, res) => {
+  console.log("Alguien ha accedido al servidor");
+  res.send("Bienvenido al servidor ");
 });
 
-router.get("/rutaGetConRouter3", (req, res) => {
-  console.log("hola un saludo desde la nueva ruta");
-  res.send("hola bienvenido a la nueva ruta");
+router.post("/registro", (req, res) => {
+  console.log("Nuevo registro");
+  res.json({ mensaje: "registro exitoso" });
 });
 
-router.get("/rutaGetConRouter4", (req, res) => {
-  console.log(
-    "hola en la consola de node, desde la 4º ruta GET en el servidor"
-  );
-  res.send("hola soy la 4º ruta GET en el servidor");
+router.post("/login", (req, res) => {
+  console.log("intento de login");
+  res.json({ mensaje: "inicio de sesion exitoso" });
 });
-router.get("/rutaGetConRouter5", (req, res) => {
-  console.log(
-    "hola en la consola de node, desde la 4º ruta GET en el servidor"
-  );
-  res.send("hola soy la 5º ruta GET en el servidor");
+
+router.post("/contacto", (req, res) => {
+  console.log("mensaje de contacto recibido");
+  res.json({
+    mensaje: "gracias por tu mensaje, responderemos lo antes posible",
+  });
 });
+
+router.post("/pedido", (req, res) => {
+  console.log("nuevo pedido recibido");
+  res.json({ mensaje: "pedido creado" });
+});
+
+router.post("/suscripcion", (req, res) => {
+  console.log("Nueva suscripcion");
+  res.json({ mensaje: "Te has suscrito correctamente" });
+});
+
+// router.post("/rutaPost", (req, res) => {
+//   console.log("Alguien ha accedido a la ruta POST");
+//   res.send("hola haciendo pruebas con la ruta POST");
+// });
 
 module.exports = router;
