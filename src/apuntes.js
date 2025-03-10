@@ -20,15 +20,20 @@ router.post("/rutaPost", (req, res) => {
   res.send("Hola haciendo pruebas con la ruta POST ");
 });
 
-router.post("/rutaPostconBody", (req, res) => {
-  req.body = "cosas del request";
-  console.log(req);
-  res.json({
-    saludo: "hola desde un JSON",
-  });
+router.post("/rutaPOSTconBody", (req, res) => {
+  console.log(req.body);
+  res.send("Informacion recibida");
 });
 
 module.exports = router;
+
+// router.post("/rutaPostconBody", (req, res) => {
+//   req.body = "cosas del request";
+//   console.log(req);
+//   res.json({
+//     saludo: "hola desde un JSON",
+//   });
+// });
 
 // router.get("/", (req, res) => {
 //   console.log("Alguien ha accedido al servidor");
